@@ -1,193 +1,205 @@
-[Application of Discrete Models](https://canvas.elte.hu/courses/31709) \> [Assignments](https://canvas.elte.hu/courses/31709/assignments) \> Digital Signature
+﻿[Application of Discrete Models](https://canvas.elte.hu/courses/31709) > [Assignments](https://canvas.elte.hu/courses/31709/assignments) > Digital Signature
 
-![](RackMultipart20221214-1-e9v4fp_html_dae02e2d9ab5aea3.png)
+![](Aspose.Words.b2195ae0-d5fd-4220-845a-14b8b89f6392.001.png)
 
 Name: **MARTINS Alfredo** | Neptune-code: **HEIOPO**
 
-_ELTE, Budapest 18/12/2022_
+*ELTE, Budapest 18/12/2022*
 
 **Digital Signatures**
 
 **OVERVIEW**
 
-![Shape1](RackMultipart20221214-1-e9v4fp_html_e839118ffc20d7be.gif)
+*Figure 1. Image from Simplilearn, 2022*
 
-_Figure 1. Image from Simplilearn, 2022_
+![](Aspose.Words.b2195ae0-d5fd-4220-845a-14b8b89f6392.002.png)![Asymmetric\_Key](Aspose.Words.b2195ae0-d5fd-4220-845a-14b8b89f6392.003.png)***Cryptography*** is the science of *encrypting* and *decrypting* information to prevent unauthorized access. The decryption process should be known to both sender and the receiver. There are two types of encryption, **symmetric** and **asymmetric**. Symmetric key cryptography uses the same key for encryption and decryption, which is not our focus. The given topic, *Digital Signatures,* relies on asymmetric key cryptography because of the fact that *is uses a pair of two different keys*, **public key** (for encryption) and **private key** (for decryption).
 
-_**C ![](RackMultipart20221214-1-e9v4fp_html_83cf052e78004ea1.png) ryptography**_ is the science of _encrypting_ and _decrypting_ information to prevent unauthorized access. The decryption process should be known to both sender and the receiver. There are two types of encryption, **symmetric** and **asymmetric**. Symmetric key cryptography uses the same key for encryption and decryption, which is not our focus. The given topic, _Digital Signatures,_ relies on asymmetric key cryptography because of the fact that _is uses a pair of two different keys_, **public key** (for encryption) and **private key** (for decryption).
+Briefly, *Digital signatures* are mechanisms ***to determine authenticity*** of a document file. They are one of the main aspects of ensure security and ***integrity*** of data that was recorded into a ***BlockChain***. Similar to the handwritten signature in the physical world. Digital signatures are used to bind a person or entity to digital data. There are two main types of implementation of Digital signatures:
 
-Briefly, _Digital signatures_ are mechanisms _ **to determine authenticity** _ of a document file. They are one of the main aspects of ensure security and _ **integrity** _ of data that was recorded into a _ **BlockChain** _. Similar to the handwritten signature in the physical world. Digital signatures are used to bind a person or entity to digital data. There are two main types of implementation of Digital signatures:
+1) **RSA (Rivest–Shamir–Adleman Algorithm);**
+1) **DSA (Digital Signature Algorithm).**
 
-1. **RSA (Rivest–Shamir–Adleman Algorithm);**
-2. **DSA (Digital Signature Algorithm).**
-
-**So far so good, I have introduced the topic, now let's jump right in to the requirements!**
+**So far so good, I have introduced the topic, now let’s jump right in to the requirements!**
 
 **PROBLEM STATEMENT**
 
 For a sake of simplicity, let denote:
 
-_ **Jack** _ = sender | _ **Mary** _ = receiver | _ **m = original message** _ | _ **m' = modified message** _ | **JK (-) = Jack's private key** | **JK (+) = Jack's public key**
+***Jack*** = sender | ***Mary*** = receiver | ***m = original message*** | ***m’ = modified message*** | **JK (-) = Jack’s private key** | **JK (+) = Jack’s public key**
 
-Jack and Mary are communication through an insecure channel (third-part can listen to this communication). If Jack wants to send "10$" to Mary, there is a big chance that this communication is catched by a "Hacker", and he changes the message saying that Jack wants to send "1000$" to Mary. In case it happens, there might have a huge problem between Jack and Mary! With that being said, since there will be contradiction between them, i.e., Jack says he didn't send 1000$ but, 10$ instead, and Mary will say Jack sent 1000$. So, they will have to verify the source and integrity of the message, so that Mary is not carried to justice. However, a question arrives. How to verify the source and integrity of the message?
+Jack and Mary are communication through an insecure channel (third-part can listen to this communication). If Jack wants to send “10$” to Mary, there is a big chance that this communication is catched by a “Hacker”, and he changes the message saying that Jack wants to send “1000$” to Mary. In case it happens, there might have a huge problem between Jack and Mary! With that being said, since there will be contradiction between them, i.e., Jack says he didn’t send 1000$ but, 10$ instead, and Mary will say Jack sent 1000$. So, they will have to verify the source and integrity of the message, so that Mary is not carried to justice. However, a question arrives. How to verify the source and integrity of the message?
+
 
 **DETAILS OF THE SOLUTION**
 
-**Main idea:** Jack wants to send a digitally signed document/message to Mary. He wants to prove that he is the owner of that message. In order to do that, Jack will use his private key to digitally sign the document and Mary will have the responsibility to verify that signature and check that It was Jack that encrypted It.
+**Main idea:** Jack wants to send a digitally signed document/message to Mary. He wants to prove that he is the owner of that message. In order to do that, Jack will use his private key to digitally sign the document and Mary will have the responsibility to verify that signature and check that It was Jack that encrypted It.** 
 
-**m = "Hey, Mary! I sent you 10$".**
+**m = “Hey, Mary! I sent you 10$”.**
 
-**Simple Oversimplification of Digital Signature for message "m":**
+**Simple Oversimplification of Digital Signature for message “m”:**
 
-1. Jack signs m by encrypting with his private key JK (-), creating a digitally signed message, JK (-) (m). He is the only one who has this private key, It's secret!
-2. Suppose Mary receives the message m, with signature: m and JK (-) (m).
-3. Mary verifies m signed by Jack by applying JK (+) to JK (-) (m), then checks JK (+) (JK (-) (m)) = m;
-4. If the performed key unlocks the message, then, whoever signed "m" must have used JK (-).
+1) Jack signs m by encrypting with his private key JK (-), creating a digitally signed message, JK (-) (m). He is the only one who has this private key, It’s secret!
+1) Suppose Mary receives the message m, with signature: m and JK (-) (m).
+1) Mary verifies m signed by Jack by applying JK (+) to JK (-) (m), then checks JK (+) (JK (-) (m)) = m;
+1) If the performed key unlocks the message, then, whoever signed “m” must have used JK (-).
 
 On this way, Mary thus verifies that:
 
 - Jack signed m;
 - No one else signed m;
-- Bob signed m and not m';
+- Bob signed m and not m’;
 - Data integrity is fulfilled.
 
 **No repudiation:**
 
 Mary can take m, and signature PK (-) to count and prove signed m.
 
-Now that we know how to prove the ownership of the message, a new huge problem comes. What If Jack wants to send a bit document of gigabytes of size?
+Now that we know how to prove the ownership of the message, a new huge problem comes. What If Jack wants to send a bit document of gigabytes of size? 
 
-Well, the message/document that Jack sends can have any length/size, either it is very long or too short, RSA algorithm would cause problems with computational efficiency (split message up, sign multiple bits and then it might be reordered), giving attacks opportunity to NINJAS. This idea would not work properly for some cases, therefore, It's a good ideia to use a scheme that will work however long m is or however short m is.
+Well, the message/document that Jack sends can have any length/size, either it is very long or too short, RSA algorithm would cause problems with computational efficiency (split message up, sign multiple bits and then it might be reordered), giving attacks opportunity to NINJAS. This idea would not work properly for some cases, therefore, It’s a good ideia to use a scheme that will work however long m is or however short m is.
 
 The solution for this problem is the insertion of Hash Function H, in this example SHA-256 will be used to create message digest. As we can notice, on this way Jack can send m of any length and turn into a length of exactly 250 bits which would help a lot the encryption process.
 
 Since 250 is quite short, a padding might also be added to the message digest.
 
-Jack has no idea what the output of the Hash Function is going to be. It can be very small like in BlockChain, which would lead to a security risk. Then, to avoid this risk, a padding or any mechanism must be used, and after this we can encrypt using the private key. Same process must be done in Mary's side.
+Jack has no idea what the output of the Hash Function is going to be. It can be very small like in BlockChain, which would lead to a security risk. Then, to avoid this risk, a padding or any mechanism must be used, and after this we can encrypt using the private key. Same process must be done in Mary’s side.
+**
+
 
 **Last but not least, to add more security, a PSSR id added.**
 
 **# Probabilistic signature scheme of RSA.**
 
-Also, It's recommended to register a public key in a **Public Key Certification Authority (CA)**.
+Also, It’s recommended to register a public key in a **Public Key Certification Authority (CA)**.
 
-**Certification Authority (CA):**_binds public key to particular entity, E_.
+**Certification Authority (CA):** *binds public key to particular entity, E*.
 
-**BlockChain** : _collection of records linked with each other, strongly resistant to alteration and protected using cryptography._
+**BlockChain**: *collection of records linked with each other, strongly resistant to alteration and protected using cryptography.*
 
-**Hashing:** _process of scrambling a piece of information or data beyond recognition. Hash functions are used to convert input into hash value (digest)_.
+**Hashing:** *process of scrambling a piece of information or data beyond recognition. Hash functions are used to convert input into hash value (digest)*.
+
+**Hash Function**: *computationally efficient function mapping binary strings of arbitrary length to binary strings of some fixed length, called hash-values.*
 
 **HASH FUNCTION PROPERTIES**
 
 - Many to 1;
-- Produces fixed-size message digest (_ **fingerprint** _);
-- Given message digest x, computationally infeasible to find m such that .
+- Produces fixed-size message digest (***fingerprint***);
+- Given message digest x, computationally infeasible to find m such that x = H(m).
 
 **PROPERTIES OF DIGITAL SIGNATURES**
 
-C ![](RackMultipart20221214-1-e9v4fp_html_3bf6752e0b59956d.png) onfidentially | Unforgeable | Authenticity | Can't be modified once sent | Not reusable | Prevent repudiation | Ownership | Immutability.
+![](Aspose.Words.b2195ae0-d5fd-4220-845a-14b8b89f6392.004.png)Confidentially | Unforgeable | Authenticity | Can't be modified once sent | Not reusable | Prevent repudiation | Ownership | Immutability. 
 
-![Shape2](RackMultipart20221214-1-e9v4fp_html_b0859064c1f3372a.gif)
 
-Figure 2 _(Digital Signatures and Digital Certificates, 2019)_
+Figure 2 (Digital Signatures and Digital Certificates, 2019)
+![](Aspose.Words.b2195ae0-d5fd-4220-845a-14b8b89f6392.005.png)**
 
 **RSA**
 
 **Step 1 - Key Generation**
 
-1. Consider two large prime numbers, and ;
-2. Compute ;
-3. , where is Euler's Totient Function;
-4. Choose a small number , coprime to and , i.e. , ( and ), where ;
-5. Select a number so that .
+1) Consider two large prime numbers, p and q;
+1) Compute n = p\*q;
+1) ϕn=p-1\*q-1, where ϕn is Euler’s Totient Function;
+1) Choose a small number e, coprime to n and ϕn, i.e. , ( gcd(ϕn, e) = 1 and gcd(n,  e) = 1), where 1 < e < ϕn;
+1) Select a number d so that e\*d mod ϕn = 1.
 
 **Step 2 – Encryption and Decryption:**
 
-If the plaintext is, encrypted cipher-text is calculated as:
+If the plaintext is, encrypted cipher-text c is calculated as:
+
+c =me mod n
 
 Under similar assumptions, the plaintext can be calculated using the following expression:
 
-_Please, check the example at the end of this report._
+m = cd mod n
+
+*Please, check the example at the end of this report.*
 
 **TEST CASES WHICH VALIDATE THE SOLUTION**
 
-| **Sign text** |
-| --- |
-| **#** | **Text** | **Private key** | **Response** |
-| 1 |
- |
- |
- |
-| 2 |
- |
- |
- |
-| 3 |
- |
- |
- |
-| 4 |
- |
- |
- |
-| 5 |
- |
- |
- |
 
-| **Verify signature** |
-| --- |
-| **#** | **Text** | **Signature** | **Public key** | **Response** |
-| 1 |
- |
- |
- |
- |
-| 2 |
- |
- |
- |
- |
-| 3 |
- |
- |
- |
- |
-| 4 |
- |
- |
- |
- |
-| 5 |
- |
- |
- |
- |
+|**Key generation**|
+| :-: |
+|**#**|**p**|**q**|**Public key**|**Private key**|**n**|
+|1|<p>31014849826140560587091510175269025134359920604384635218445374535116355316859</p><p></p>|<p>40186280705229592592606697638411884400370885387354349411735084067617242395017</p><p></p>|<p>891442610791737467307944036317436349551003587334948098136635242994304094011181245801478744507075350143823103233194221928815053405619762287410425015065207</p><p></p>|<p>767503198965455433445858052660040676275247932570138219533926038876930367709077865705289113037228899638196417567137908153202456120942975835437034169931991</p><p></p>|<p>1246371461143825794319810024232466896090839775904996683407848327440172647690025790197857422185245167994731071735346234886749379758023589512099011077691603</p><p></p>|
+|2|3|5|5|5|15|
 
-Please, check the sage-math script in the link: https://github.com/CodeTyperPro/DigitalSignature/blob/master/Digital\_Signature.ipynb
+|**Sign text**|
+| :-: |
+|**#**|**Text (m)**|**Private key (e)**|**n**|**Signature (e)**|
+|1|Hey, Mary! I sent you 10 Dollars.|<p>767503198965455433445858052660040676275247932570138219533926038876930367709077865705289113037228899638196417567137908153202456120942975835437034169931991</p><p></p>|<p>1246371461143825794319810024232466896090839775904996683407848327440172647690025790197857422185245167994731071735346234886749379758023589512099011077691603</p><p></p>|<p>699793254461082653955955971812964599310695308035994196766614509831401768101464256331000803096660002327570380283790111213227186272135905826978072391870709</p><p></p>|
+|2|b|5|15|5|
 
-**EXAMPLES:**
+
+|**Verify signature**|
+| :-: |
+|**#**|**Text (m)**|**Signature (c)**|**Public key (d)**|**n**|**Response**|
+|1|Hey, Mary! I sent you 10 Dollars.|<p>699793254461082653955955971812964599310695308035994196766614509831401768101464256331000803096660002327570380283790111213227186272135905826978072391870709</p><p></p>|<p>891442610791737467307944036317436349551003587334948098136635242994304094011181245801478744507075350143823103233194221928815053405619762287410425015065207</p><p></p>|<p>1246371461143825794319810024232466896090839775904996683407848327440172647690025790197857422185245167994731071735346234886749379758023589512099011077691603</p><p></p>|Success|
+|2|b|5|5|15|Success|
+|3|Hey, Mary! I sent you 100 Dollars.|<p>699793254461082653955955971812964599310695308035994196766614509831401768101464256331000803096660002327570380283790111213227186272135905826978072391870709</p><p></p>|<p>891442610791737467307944036317436349551003587334948098136635242994304094011181245801478744507075350143823103233194221928815053405619762287410425015065207</p><p></p>|<p>1246371461143825794319810024232466896090839775904996683407848327440172647690025790197857422185245167994731071735346234886749379758023589512099011077691603</p><p></p>|Fail|
+|4|bi|5|5|15|Fail|
+Please, check the sage-math script in the link: <https://github.com/CodeTyperPro/DigitalSignature/blob/master/Digital_Signature.ipynb>
+
+**EXAMPLES**
 
 **RSA – Key Generation:**
 
-1. Two prime numbers, and
-2.
-3.
-4. Assume e such that and ), where
+1) Two prime numbers, p=3 and q=5
+1) n = p\*q = 3\*5 = 15  => n = 15
+1) ϕn=p-1\*q-1=3-1\*5-1=8=> ϕn=8
+1) Assume e such that gcd(ϕn, e) = 1 and gcd(n,  e) = 1), where 1 < e < ϕn
 
-, because:
+e = 3, because:
 
-1. Find :
+gcd3, 8= 1,gcd5, 8= 1,gcd(7, 8) = 1
 
-Consider
+1) Find d:
+
+e\*d mod ϕn = 1
+
+3\*d mod 8 = 1
+
+Consider  d = 3,
+
+3\*3 mod 8 = 1
+
+9 mod 8 = 1
+
+1 = 1
+
+d = 3
+
+
+private  key = {e, n} = {3, 15}
+
+public key = {d, n} = {3, 15}
 
 **Encryption:**
 
-Consider plaintext
+Consider plaintext m = “B” => m = H(“B”) = 8
+
+c =me mod n
+
+c =83 mod 15
+
+c =512 mod 15
+
+c =2
 
 **Descryption**
 
+m = cd mod n
+
+m = 23 mod 15
+
+m = 8 mod 15
+
+m = 8
+
 Therefore, the algorithm works.
+**
+
 
 **REFERENCES**
 
@@ -199,18 +211,19 @@ A. J. Menezes, P. C. van Oorschot, and S. A. Vanstone. Handbook of Applied Crypt
 
 D. R. Stinson. Cryptography: Theory and Practice. Chapman & Hall/CRC, Boca Raton, USA, 3rd edition, 2006.
 
-NGUYEN, M. V. Number Theory and the RSA Public Key Cryptosystem. Sage Math, 2022. Disponivel em: \<https://doc.sagemath.org/html/en/thematic\_tutorials/numtheory\_rsa.html\>. Acesso em: 14 dez. 2022.
+NGUYEN, M. V. Number Theory and the RSA Public Key Cryptosystem. Sage Math, 2022. Disponivel em: <https://doc.sagemath.org/html/en/thematic\_tutorials/numtheory\_rsa.html>. Acesso em: 14 dez. 2022.
 
-WHAT is Cryptography And How Does It Protect Data? Simplilearn, 12 dez. 2022. Disponivel em: \<https://www.simplilearn.com/tutorials/cryptography-tutorial/what-is-cryptography\>. Acesso em: 21 2022 2022.
+WHAT is Cryptography And How Does It Protect Data? Simplilearn, 12 dez. 2022. Disponivel em: <https://www.simplilearn.com/tutorials/cryptography-tutorial/what-is-cryptography>. Acesso em: 21 2022 2022.
 
 Along the references, there following videos are to be mentioned as well:
 
-- [https://www.youtube.com/watch?v=JR4\_RBb8A9Q](https://www.youtube.com/watch?v=JR4_RBb8A9Q)
-- [https://youtu.be/stsWa9A3sOM](https://youtu.be/stsWa9A3sOM)
-- [https://www.youtube.com/watch?v=stsWa9A3sOM&list=PLTd6ceoshprcUyoyOQ\_2dCvr5GPi5w\_T7&index=7](https://www.youtube.com/watch?v=stsWa9A3sOM&list=PLTd6ceoshprcUyoyOQ_2dCvr5GPi5w_T7&index=7)
-- [https://youtu.be/ANsg4wIQFn4](https://youtu.be/ANsg4wIQFn4)
-- [https://www.youtube.com/watch?v=AQDCe585Lnc](https://www.youtube.com/watch?v=AQDCe585Lnc)
-- [https://www.youtube.com/watch?v=yubzJw0uiE4&t=181s](https://www.youtube.com/watch?v=yubzJw0uiE4&t=181s)
-- [https://www.youtube.com/watch?v=s22eJ1eVLTU](https://www.youtube.com/watch?v=s22eJ1eVLTU)
-- [https://www.youtube.com/watch?v=-0slxSL9B6A](https://www.youtube.com/watch?v=-0slxSL9B6A)
-- [https://www.youtube.com/watch?v=OBdEhSPoDaY](https://www.youtube.com/watch?v=OBdEhSPoDaY)
+- <https://www.youtube.com/watch?v=JR4_RBb8A9Q>
+- <https://youtu.be/stsWa9A3sOM>
+- <https://www.youtube.com/watch?v=stsWa9A3sOM&list=PLTd6ceoshprcUyoyOQ_2dCvr5GPi5w_T7&index=7>
+- <https://youtu.be/ANsg4wIQFn4>
+- <https://www.youtube.com/watch?v=AQDCe585Lnc>
+- <https://www.youtube.com/watch?v=yubzJw0uiE4&t=181s>
+- <https://www.youtube.com/watch?v=s22eJ1eVLTU>
+- <https://www.youtube.com/watch?v=-0slxSL9B6A>
+- <https://www.youtube.com/watch?v=OBdEhSPoDaY>
+
