@@ -2,7 +2,7 @@
 
 ![](Aspose.Words.b2195ae0-d5fd-4220-845a-14b8b89f6392.001.png)
 
-Name: **MARTINS Alfredo** | Neptune-code: **HEIOPO**
+Name: **MARTINS Alfredo** | Neptune-code: **#**
 
 *ELTE, Budapest 18/12/2022*
 
